@@ -1,0 +1,187 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = None
+  Caption = 'Form1'
+  ClientHeight = 536
+  ClientWidth = 869
+  Fill.Kind = Solid
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object ToolBar1: TToolBar
+    Size.Width = 869.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Label1: TLabel
+      AutoSize = True
+      Cursor = crHandPoint
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 384.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 34.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 25.000000000000000000
+      Text = 'SORTEIO'
+      TabOrder = 1
+    end
+    object btn_menu: TSpeedButton
+      StaysPressed = True
+      Align = Right
+      StyledSettings = [Family, Size, Style]
+      IconTintColor = xFF5C5C5C
+      Margins.Right = 5.000000000000000000
+      Position.X = 720.000000000000000000
+      Size.Width = 91.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Novo Cadastro'
+      TextSettings.FontColor = xFF24AF8E
+      OnClick = btn_menuClick
+    end
+    object SpeedButton1: TSpeedButton
+      Align = Right
+      IconTintColor = xFF5C5C5C
+      Margins.Right = 5.000000000000000000
+      Position.X = 816.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'escapetoolbuttonbordered'
+      OnClick = SpeedButton1Click
+    end
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Margins.Bottom = 10.000000000000000000
+    Position.Y = 409.000000000000000000
+    Size.Width = 869.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object TextNomeSorteado: TText
+      Align = Center
+      Size.Width = 850.000000000000000000
+      Size.Height = 38.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Nome'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = claBrown
+    end
+  end
+  object StringGrid1: TStringGrid
+    Align = Top
+    CanFocus = True
+    ClipChildren = True
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 849.000000000000000000
+    Size.Height = 342.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'gridstyle'
+    TabOrder = 4
+    RowCount = 0
+    Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 849.000000000000000000
+    Viewport.Height = 342.000000000000000000
+  end
+  object Layout2: TLayout
+    Align = Bottom
+    Margins.Bottom = 5.000000000000000000
+    Position.Y = 475.000000000000000000
+    Size.Width = 869.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object RoundRect2: TRoundRect
+      Align = Center
+      Cursor = crHandPoint
+      Fill.Color = claNull
+      Margins.Left = 2.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Size.Width = 190.000000000000000000
+      Size.Height = 46.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 3.000000000000000000
+      object FloatAnimation3: TFloatAnimation
+        Duration = 0.500000000000000000
+        Inverse = True
+        PropertyName = 'Scale.X'
+        StartValue = 1.000000000000000000
+        StopValue = 1.049999952316284000
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
+      end
+      object FloatAnimation4: TFloatAnimation
+        Duration = 0.500000000000000000
+        PropertyName = 'Scale.Y'
+        StartValue = 1.000000000000000000
+        StopValue = 1.049999952316284000
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
+      end
+      object Text2: TText
+        Align = Center
+        Cursor = crHandPoint
+        Size.Width = 178.000000000000000000
+        Size.Height = 42.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'SORTEAR'
+        OnClick = Text2Click
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 680
+    Top = 216
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGrid1
+      Columns = <
+        item
+          MemberName = 'ID'
+          Header = 'C'#243'd'
+        end
+        item
+          MemberName = 'NOME'
+          Width = 310
+        end
+        item
+          MemberName = 'ENDERECO'
+          Width = 250
+        end
+        item
+          MemberName = 'BAIRRO'
+          Width = 100
+        end
+        item
+          MemberName = 'TELEFONE'
+          Width = 100
+        end>
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = dmDados.RDWCliente
+    ScopeMappings = <>
+    Left = 416
+    Top = 256
+  end
+end
